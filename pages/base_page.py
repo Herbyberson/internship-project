@@ -29,3 +29,4 @@ class Page:
         actual_information = self.find_element(*locator).get_attribute('value')
         assert expected_information == actual_information, \
             f"Expected '{expected_information}' but got '{actual_information}'"
+        print(actual_information)

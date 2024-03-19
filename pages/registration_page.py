@@ -4,13 +4,29 @@ from time import sleep
 
 
 class RegistrationPage(Page):
-    FIRST_LAST_NAME_FIELDS = (By.XPATH, "//input[@wized='fullNameInput']")
+    NAME_FIELD = (By.XPATH, "//input[@wized='fullNameInput']")
+    PHONE_FIELD = (By.XPATH, "//*[@id='phone2']")
+    EMAIL_FIELD = (By.XPATH, "//*[@id='Email-3']")
+    PASSWORD_FIELD = (By.XPATH, "//*[@id='field']")
 
     def element_visible(self):
-        self.wait_element_visible(*self.FIRST_LAST_NAME_FIELDS)
+        self.wait_element_visible(*self.NAME_FIELD)
 
-    def enter_information(self, information):
-        self.input_text(information, *self.FIRST_LAST_NAME_FIELDS)
+    def name_information(self, information):
+        self.input_text(information, *self.NAME_FIELD)
+
+    def phone_number_information(self, phone):
+        self.input_text(phone, *self.PHONE_FIELD)
+
+    def email_address_information(self, email):
+        self.input_text(email, *self.EMAIL_FIELD)
+
+    def password_information(self, password):
+        self.input_text(password, *self.PASSWORD_FIELD)
 
     def verify_information(self, expected_information):
-        self.verify_text(expected_information, *self.FIRST_LAST_NAME_FIELDS)
+        # verifying email
+        self.verify_text(expected_information, *self.EMAIL_FIELD)
+        # self.verify_text(expected_information, *self.PASSWORD_FIELD)
+        # self.verify_text(expected_information, *self.NAME_FIELD)
+        # self.verify_text(expected_information, *self.PHONE_FIELD)
