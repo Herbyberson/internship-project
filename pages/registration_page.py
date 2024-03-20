@@ -24,9 +24,8 @@ class RegistrationPage(Page):
     def password_information(self, password):
         self.input_text(password, *self.PASSWORD_FIELD)
 
-    def verify_information(self, expected_information):
-        # verifying email
-        self.verify_text(expected_information, *self.EMAIL_FIELD)
-        # self.verify_text(expected_information, *self.PASSWORD_FIELD)
-        # self.verify_text(expected_information, *self.NAME_FIELD)
-        # self.verify_text(expected_information, *self.PHONE_FIELD)
+    def verify_information(self, expected_information: dict):
+        self.verify_text(expected_information['email'], *self.EMAIL_FIELD)
+        self.verify_text(expected_information['password'], *self.PASSWORD_FIELD)
+        self.verify_text(expected_information['name'], *self.NAME_FIELD)
+        self.verify_text(expected_information['phone'], *self.PHONE_FIELD)

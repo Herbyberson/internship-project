@@ -29,4 +29,4 @@ def verify_right_information(context):
     email = name.replace(" ", "") + '@GMAIL.COM'
     password = "qwerty"
     expected_information = {'name': name, 'phone': phone, 'email': email, 'password': password}
-    context.app.registration_page.verify_information(expected_information['email'])
+    context.app.registration_page.verify_information(expected_information)
