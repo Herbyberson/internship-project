@@ -14,16 +14,25 @@ def browser_init(context):
     """
     # headless environment Google Chrome set up:
 
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    driver_path = ChromeDriverManager().install()
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service, options=options)
+
+    # headless environment Firefox set up:
+
+    options = webdriver.FirefoxOptions()
+    options.add_argument("--headless")
+    driver_path = GeckoDriverManager().install()
     service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service, options=options)
+    context.driver = webdriver.Firefox(service=service, options=options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.wait = WebDriverWait(context.driver, 15)
     context.app = Application(context.driver)
+
 
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
