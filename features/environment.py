@@ -31,8 +31,8 @@ def browser_init(context, scenario_name):
 
     ### BROWSERSTACK ENVIRONMENT ###
 
-    bs_username = 'herbyberson_9UFj4o'
-    bs_access_key = 'XzyFDFyqBpCNqjtKEvQB'
+    bs_username = # private-removed for privacy
+    bs_access_key = # private-removed for privacy
     url = f'http://{bs_username}:{bs_access_key}@hub-cloud.browserstack.com/wd/hub'
 
     options = Options()
